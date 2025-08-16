@@ -1,0 +1,110 @@
+---
+// Hero Section - Brightline Creative with Elegant Animations
+---
+
+<section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          <span class="title-line1">
+            <span class="word elegant-entry">We</span>
+            <span class="word elegant-entry">make</span>
+            <span class="word elegant-entry">your</span>
+          </span>
+          
+          <span class="title-line2">
+            <span class="word-brand elegant-entry">brand</span>
+            <span class="word-shine elegant-entry">shine</span>
+          </span>
+          
+          <span class="title-line3">
+            <span class="word elegant-entry">in the</span>
+            <span class="word-digital elegant-entry">digital world</span>
+          </span>
+        </h1>
+        
+        <p class="hero-subtitle elegant-fade-in">
+          Transform your business with innovative digital strategies, 
+          creative advertising, and design solutions that drive measurable results for your brand.
+        </p>
+        
+        <div class="hero-cta elegant-fade-in">
+          <a href="#contact" class="btn btn-primary">Start Your Project</a>
+          <a href="#services" class="btn btn-secondary">View Our Services</a>
+        </div>
+        
+        <div class="hero-stats elegant-fade-in">
+          <div class="stat">
+            <span class="stat-number">45+</span>
+            <span class="stat-label">Brands Helped</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">300%</span>
+            <span class="stat-label">Avg. Growth</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">5</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="hero-visual">
+        <div id="lottie-animation" class="lottie-container elegant-scale-in"></div>
+        <div class="visual-gradient"></div>
+      </div>
+    </div>
+  </section>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Inicializar animación Lottie con verificaciones de seguridad
+      if (typeof window !== 'undefined' && window.lottie) {
+        const animationContainer = document.getElementById('lottie-animation');
+        if (animationContainer) {
+          const animation = window.lottie.loadAnimation({
+            container: animationContainer,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: '/animations/marketing_animation_hero.json'
+          });
+          animation.setSpeed(0.8);
+        }
+      }
+      
+      // Inicializar animaciones elegantes y coordinadas
+      function initElegantAnimations() {
+        // Activar todas las animaciones en secuencia
+        const elements = document.querySelectorAll('.elegant-entry, .elegant-fade-in, .elegant-scale-in');
+        
+        elements.forEach((element, index) => {
+          setTimeout(() => {
+            element.classList.add('animate-in');
+          }, index * 80 + 100); // Mucho más rápido: era 150ms + 200ms
+        });
+        
+        // Efecto LED para "shine" con verificación - más rápido
+        setTimeout(() => {
+          const shineElement = document.querySelector('.word-shine');
+          if (shineElement) {
+            shineElement.classList.add('led-glow-active');
+          }
+        }, 800); // Era 1200ms
+        
+        // Efecto glitch suave para "digital world" - más rápido
+        setTimeout(() => {
+          const digitalElement = document.querySelector('.word-digital');
+          if (digitalElement) {
+            digitalElement.classList.add('glitch-active');
+          }
+        }, 1200); // Era 1800ms
+      }
+      
+      initElegantAnimations();
+    });
+  </script>
+  
+  <style is:global>
+    @import '../../styles/hero.css';
+  </style>

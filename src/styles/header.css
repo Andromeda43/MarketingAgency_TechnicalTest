@@ -1,0 +1,207 @@
+/* Header Component - Brightline Creative */
+.header {
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+/* Logo con animación */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: translateY(-2px);
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-shape {
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-yellow) 100%);
+  border-radius: 8px;
+  position: relative;
+  animation: logoFloat 3s ease-in-out infinite;
+}
+
+.logo-shape::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background: var(--white);
+  border-radius: 3px;
+  animation: logoPulse 2s ease-in-out infinite;
+}
+
+.logo-text {
+  font-family: var(--font-space);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+  letter-spacing: -0.02em;
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-link {
+  font-family: var(--font-inter);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--gray-700);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary-blue);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-yellow);
+  border-radius: 1px;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Header CTA */
+.header-cta {
+  display: flex;
+  align-items: center;
+}
+
+.btn-header {
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Línea de borde especial - Amarillo centro, azul extremos */
+.header-border {
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--primary-blue) 0%,
+    var(--primary-blue) 20%,
+    var(--accent-yellow) 50%,
+    var(--primary-blue) 80%,
+    var(--primary-blue) 100%
+  );
+  position: relative;
+  animation: borderShine 4s ease-in-out infinite;
+}
+
+/* Animaciones */
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-3px) rotate(2deg);
+  }
+}
+
+@keyframes logoPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+@keyframes borderShine {
+  0%, 100% {
+    background: linear-gradient(
+      90deg,
+      var(--primary-blue) 0%,
+      var(--primary-blue) 20%,
+      var(--accent-yellow) 50%,
+      var(--primary-blue) 80%,
+      var(--primary-blue) 100%
+    );
+  }
+  50% {
+    background: linear-gradient(
+      90deg,
+      var(--primary-blue) 0%,
+      var(--primary-blue) 15%,
+      var(--accent-yellow) 50%,
+      var(--primary-blue) 85%,
+      var(--primary-blue) 100%
+    );
+  }
+}
+
+/* Estados del header */
+.header.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 20px rgba(10, 37, 64, 0.08);
+}
+
+.header.scrolled .header-content {
+  padding: 16px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav {
+    display: none; /* Ocultar en móvil por simplicidad */
+  }
+  
+  .header-content {
+    padding: 16px 0;
+  }
+  
+  .logo-text {
+    font-size: 1.3rem;
+  }
+  
+  .btn-header {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+}

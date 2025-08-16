@@ -1,0 +1,187 @@
+---
+// About Section - Brightline Creative
+---
+
+<section id="about" class="about">
+    <div class="container">
+      <!-- Floating Background Elements -->
+      <div class="bg-elements">
+        <div class="floating-circle circle-1"></div>
+        <div class="floating-circle circle-2"></div>
+        <div class="floating-square square-1"></div>
+        <div class="floating-line line-1"></div>
+        <div class="floating-line line-2"></div>
+      </div>
+  
+      <!-- Main Content -->
+      <div class="about-content">
+        <!-- Header Section -->
+        <div class="about-header">
+          <div class="section-badge">Who We Are</div>
+          <h2 class="about-title">
+            <span class="title-line">Transforming brands through</span>
+            <span class="title-highlight">innovative digital strategies</span>
+          </h2>
+          <p class="about-description">
+            At Brightline Creative, we don't just create campaigns—we craft digital experiences 
+            that connect brands with their audiences in meaningful ways. Our passion lies in 
+            turning creative ideas into measurable business results.
+          </p>
+        </div>
+  
+        <!-- Stats Section -->
+        <div class="stats-grid">
+          <div class="stat-card" data-number="45">
+            <div class="stat-visual">
+              <div class="stat-icon icon-brands"></div>
+            </div>
+            <div class="stat-info">
+              <span class="stat-number">45+</span>
+              <span class="stat-label">Brands Transformed</span>
+            </div>
+          </div>
+          
+          <div class="stat-card" data-number="300">
+            <div class="stat-visual">
+              <div class="stat-icon icon-growth"></div>
+            </div>
+            <div class="stat-info">
+              <span class="stat-number">300%</span>
+              <span class="stat-label">Average Growth</span>
+            </div>
+          </div>
+          
+          <div class="stat-card" data-number="98">
+            <div class="stat-visual">
+              <div class="stat-icon icon-satisfaction"></div>
+            </div>
+            <div class="stat-info">
+              <span class="stat-number">98%</span>
+              <span class="stat-label">Client Satisfaction</span>
+            </div>
+          </div>
+          
+          <div class="stat-card" data-number="5">
+            <div class="stat-visual">
+              <div class="stat-icon icon-experience"></div>
+            </div>
+            <div class="stat-info">
+              <span class="stat-number">5+</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Mission Section -->
+        <div class="mission-section">
+          <div class="mission-content">
+            <h3 class="mission-title">Our Mission</h3>
+            <p class="mission-text">
+              We believe every brand has a unique story waiting to be told. Our mission is to 
+              amplify that story through strategic digital marketing, compelling design, and 
+              data-driven campaigns that not only look great but deliver exceptional ROI.
+            </p>
+            
+            <div class="approach-grid">
+              <div class="approach-item">
+                <div class="approach-icon approach-strategy"></div>
+                <h4>Strategic Thinking</h4>
+                <p>Every campaign starts with deep research and strategic planning.</p>
+              </div>
+              
+              <div class="approach-item">
+                <div class="approach-icon approach-creative"></div>
+                <h4>Creative Excellence</h4>
+                <p>We push creative boundaries while maintaining brand consistency.</p>
+              </div>
+              
+              <div class="approach-item">
+                <div class="approach-icon approach-results"></div>
+                <h4>Measurable Results</h4>
+                <p>Data-driven approach ensures every dollar spent drives real impact.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mission-visual">
+            <div id="lottie-analytics" class="lottie-analytics-container"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Inicializar animación Lottie Analytics
+      if (typeof window !== 'undefined' && window.lottie) {
+        const analyticsContainer = document.getElementById('lottie-analytics');
+        if (analyticsContainer) {
+          const analyticsAnimation = window.lottie.loadAnimation({
+            container: analyticsContainer,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: '/animations/analytics_animation_about.json'
+          });
+          analyticsAnimation.setSpeed(0.8);
+        }
+      }
+  
+      // Intersection Observer para animaciones
+      const observerOptions = {
+        threshold: 0.3,
+        rootMargin: '0px 0px -100px 0px'
+      };
+  
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            
+            // Animar números de stats
+            if (entry.target.classList.contains('stat-card')) {
+              animateNumber(entry.target);
+            }
+          }
+        });
+      }, observerOptions);
+  
+      // Observar elementos para animaciones
+      document.querySelectorAll('.about-header, .stat-card, .mission-section, .approach-item').forEach(el => {
+        observer.observe(el);
+      });
+  
+      // Función para animar números
+      function animateNumber(card) {
+        const numberElement = card.querySelector('.stat-number');
+        const targetNumber = parseInt(card.dataset.number) || 0;
+        const isPercentage = numberElement.textContent.includes('%');
+        const hasPlus = numberElement.textContent.includes('+');
+        
+        let currentNumber = 0;
+        const increment = targetNumber / 50; // 50 pasos de animación
+        
+        const timer = setInterval(() => {
+          currentNumber += increment;
+          if (currentNumber >= targetNumber) {
+            currentNumber = targetNumber;
+            clearInterval(timer);
+          }
+          
+          let displayNumber = Math.floor(currentNumber);
+          if (isPercentage) {
+            numberElement.textContent = displayNumber + '%';
+          } else if (hasPlus) {
+            numberElement.textContent = displayNumber + '+';
+          } else {
+            numberElement.textContent = displayNumber;
+          }
+        }, 30);
+      }
+    });
+  </script>
+  
+  <style is:global>
+    @import '../../styles/about.css';
+  </style>
