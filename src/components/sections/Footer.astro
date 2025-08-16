@@ -1,0 +1,100 @@
+---
+// Footer Component - Brightline Creative
+---
+
+<footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <!-- Logo and Tagline -->
+        <div class="footer-brand">
+          <div class="footer-brand-logo">
+            <div class="footer-logo-icon">
+              <div class="footer-logo-shape"></div>
+            </div>
+            <span class="footer-logo-text">Brightline</span>
+          </div>
+          <p class="footer-tagline">We make your brand shine</p>
+        </div>
+  
+        <!-- Navigation Links -->
+        <div class="footer-navigation">
+          <h4 class="footer-section-title">Navigation</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+  
+        <!-- Contact Info -->
+        <div class="footer-contact-section">
+          <h4 class="footer-section-title">Contact Info</h4>
+          <div class="footer-contact-info">
+            <p class="footer-contact-item">
+              <span class="footer-contact-label">Address:</span>
+              45 Queen Street<br>
+              Brisbane, QLD, Australia
+            </p>
+            <p class="footer-contact-item">
+              <span class="footer-contact-label">Phone:</span>
+              +61 7 3456 7890
+            </p>
+            <p class="footer-contact-item">
+              <span class="footer-contact-label">Email:</span>
+              contact@brightline.com.au
+            </p>
+          </div>
+        </div>
+  
+        <!-- Social Links -->
+        <div class="footer-social-section">
+          <h4 class="footer-section-title">Follow Us</h4>
+          <div class="footer-social-grid">
+            <a href="#" class="footer-social-item" aria-label="Facebook">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg" alt="Facebook" />
+            </a>
+            <a href="#" class="footer-social-item" aria-label="Instagram">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram" />
+            </a>
+            <a href="#" class="footer-social-item" aria-label="LinkedIn">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn" />
+            </a>
+            <a href="#" class="footer-social-item" aria-label="X">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/X_icon.svg" alt="X" />
+            </a>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div class="footer-line"></div>
+        <div class="footer-bottom-content">
+          <p class="footer-copyright">
+            © <span id="current-year">2024</span> Brightline Creative. All rights reserved.
+          </p>
+          <div class="footer-legal-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    // Set current year dynamically
+    document.addEventListener('DOMContentLoaded', function() {
+      const currentYear = new Date().getFullYear();
+      const yearElement = document.getElementById('current-year');
+      if (yearElement) {
+        yearElement.textContent = currentYear;
+      }
+    });
+  </script>
+  
+  <style is:global>
+    @import '../../styles/footer.css';
+  </style>
