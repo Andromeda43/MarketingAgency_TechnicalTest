@@ -1,0 +1,213 @@
+---
+// Services Section - Brightline Creative
+---
+
+<section id="services" class="services">
+    <div class="container">
+      <!-- Background Decorations -->
+      <div class="services-bg">
+        <div class="bg-shape shape-1"></div>
+        <div class="bg-shape shape-2"></div>
+        <div class="bg-wave"></div>
+      </div>
+  
+      <!-- Services Header -->
+      <div class="services-header">
+        <div class="section-badge">Our Services</div>
+        <h2 class="services-title">
+          <span class="title-main">We deliver comprehensive</span>
+          <span class="title-highlight">digital solutions</span>
+          <span class="title-sub">that drive real results</span>
+        </h2>
+        <p class="services-description">
+          From strategic planning to creative execution, our full-service approach 
+          ensures your brand stands out in the digital landscape.
+        </p>
+      </div>
+  
+      <!-- Main Services Grid -->
+      <div class="services-grid">
+        <div class="service-card" data-service="advertising">
+          <div class="service-icon-container">
+            <div class="service-icon icon-advertising">
+              <div class="icon-inner">📢</div>
+            </div>
+            <div class="service-glow"></div>
+          </div>
+          <div class="service-content">
+            <h3 class="service-title">Digital Advertising</h3>
+            <p class="service-description">
+              Strategic paid campaigns across Google, Facebook, Instagram, and LinkedIn 
+              that maximize ROI and drive qualified leads to your business.
+            </p>
+            <ul class="service-features">
+              <li>Campaign Strategy & Planning</li>
+              <li>PPC & Social Media Ads</li>
+              <li>Performance Optimization</li>
+              <li>Conversion Tracking</li>
+            </ul>
+          </div>
+          <div class="service-number">01</div>
+        </div>
+  
+        <div class="service-card" data-service="social">
+          <div class="service-icon-container">
+            <div class="service-icon icon-social">
+              <div class="icon-inner">📱</div>
+            </div>
+            <div class="service-glow"></div>
+          </div>
+          <div class="service-content">
+            <h3 class="service-title">Social Media Management</h3>
+            <p class="service-description">
+              Complete social media strategy, content creation, and community management 
+              that builds authentic connections with your audience.
+            </p>
+            <ul class="service-features">
+              <li>Content Strategy & Creation</li>
+              <li>Community Management</li>
+              <li>Influencer Partnerships</li>
+              <li>Analytics & Reporting</li>
+            </ul>
+          </div>
+          <div class="service-number">02</div>
+        </div>
+  
+        <div class="service-card" data-service="design">
+          <div class="service-icon-container">
+            <div class="service-icon icon-design">
+              <div class="icon-inner">🎨</div>
+            </div>
+            <div class="service-glow"></div>
+          </div>
+          <div class="service-content">
+            <h3 class="service-title">Graphic Design</h3>
+            <p class="service-description">
+              Visual identity design, branding materials, and creative assets that 
+              communicate your brand's story with impact and consistency.
+            </p>
+            <ul class="service-features">
+              <li>Brand Identity Design</li>
+              <li>Marketing Materials</li>
+              <li>Digital Asset Creation</li>
+              <li>Print & Web Graphics</li>
+            </ul>
+          </div>
+          <div class="service-number">03</div>
+        </div>
+      </div>
+  
+      <!-- Real-Time Analytics Section -->
+      <div class="analytics-section">
+        <div class="analytics-content">
+          <div class="analytics-text">
+            <div class="analytics-badge">Real-Time Insights</div>
+            <h3 class="analytics-title">
+              Monitor your success 
+              <span class="highlight-text">in real-time</span>
+            </h3>
+            <p class="analytics-description">
+              Our comprehensive dashboard gives you instant access to all your marketing 
+              metrics. Track campaigns, monitor social engagement, and measure ROI 
+              across all platforms from one centralized location.
+            </p>
+            
+            <div class="analytics-features">
+              <div class="feature-item">
+                <div class="feature-icon">📊</div>
+                <div class="feature-text">
+                  <span class="feature-title">Live Performance Data</span>
+                  <span class="feature-desc">Real-time campaign metrics and KPIs</span>
+                </div>
+              </div>
+              
+              <div class="feature-item">
+                <div class="feature-icon">📈</div>
+                <div class="feature-text">
+                  <span class="feature-title">Growth Analytics</span>
+                  <span class="feature-desc">Track growth trends and opportunities</span>
+                </div>
+              </div>
+              
+              <div class="feature-item">
+                <div class="feature-icon">🎯</div>
+                <div class="feature-text">
+                  <span class="feature-title">ROI Optimization</span>
+                  <span class="feature-desc">Maximize return on ad spend</span>
+                </div>
+              </div>
+            </div>
+  
+            <div class="analytics-cta">
+              <a href="#contact" class="btn btn-primary">See Our Work</a>
+              <a href="#contact" class="btn btn-secondary">Start Your Project</a>
+            </div>
+          </div>
+          
+          <div class="analytics-visual">
+            <div id="lottie-services" class="lottie-services-container"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Inicializar animación Lottie Services
+      if (typeof window !== 'undefined' && window.lottie) {
+        const servicesContainer = document.getElementById('lottie-services');
+        if (servicesContainer) {
+          const servicesAnimation = window.lottie.loadAnimation({
+            container: servicesContainer,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: '/animations/digital_marketing_services.json'
+          });
+          servicesAnimation.setSpeed(0.7); // Más lento para apreciar los detalles
+        }
+      }
+  
+      // Intersection Observer para animaciones
+      const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+      };
+  
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            
+            // Efecto especial para service cards
+            if (entry.target.classList.contains('service-card')) {
+              setTimeout(() => {
+                entry.target.classList.add('glow-active');
+              }, 500);
+            }
+          }
+        });
+      }, observerOptions);
+  
+      // Observar elementos
+      document.querySelectorAll('.services-header, .service-card, .analytics-section').forEach(el => {
+        observer.observe(el);
+      });
+  
+      // Hover effects para service cards
+      document.querySelectorAll('.service-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.classList.add('hover-active');
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          this.classList.remove('hover-active');
+        });
+      });
+    });
+  </script>
+  
+  <style is:global>
+    @import '../../styles/services.css';
+  </style>
